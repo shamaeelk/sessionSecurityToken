@@ -16,7 +16,7 @@ maven project for secure java object when pass into session.
 ```
 public String SecurityToken.encodeToken(Object pojo);
 ```
-###example:-
+### example:-
 ```
 String token = SecurityToken.encodeToken(user);
 ```
@@ -25,7 +25,7 @@ String token = SecurityToken.encodeToken(user);
 ```
 public <T> T SecurityToken.decodeToken(String token,Class<T> classType );
 ```
-###example:-
+### example:-
 ```
 User user = SecurityToken.decodeToken(token, User.class);
 ```
