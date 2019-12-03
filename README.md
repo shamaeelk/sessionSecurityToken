@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# sessionSecurityToken
+
+>>>>>>> 579e4ec432f706389538d617dec146b2fb023bfc
 maven project for secure java object when pass into session.
 
 ## feature
@@ -10,6 +15,7 @@ maven project for secure java object when pass into session.
 ## dependency
 - com.google.code.gson
 
+<<<<<<< HEAD
 ## Encryption
 ```
 public String SecurityToken.encodeToken(Object pojo);
@@ -27,6 +33,24 @@ public <T> T SecurityToken.decodeToken(String token,Class<T> classType );
 ###example:-
 ```
 User user = SecurityToken.decodeToken(token, User.class);
+=======
+## Encryption method
+```
+	public String SecurityToken.encodeToken(Object pojo);
+```
+###example:-
+```
+	String token = SecurityToken.encodeToken(user);
+```
+
+## Decryption method
+```
+	public <T> T SecurityToken.decodeToken(String token,Class<T> classType );
+```
+###example:-
+```
+	User user = SecurityToken.decodeToken(token, User.class);
+>>>>>>> 579e4ec432f706389538d617dec146b2fb023bfc
 ```
 
 ## Implementation
