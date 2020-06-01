@@ -17,12 +17,14 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.MalformedJsonException;
 import com.tp.security.token.decription.ObjectDecryption;
 import com.tp.security.token.decription.SignatureBcrypt;
-import com.tp.security.token.ecription.ObjectEncryption;
+import com.tp.security.token.encription.ObjectEncryption;
 import com.tp.security.token.exception.InvalidSignatureException;
 import com.tp.security.token.exception.InvalidTokenException;
 import com.tp.util.security.token.constant.ApplicationConstant;
 
 /**
+ * Security Token class.
+ *  
  * @author ii00083746
  *
  */
@@ -46,6 +48,12 @@ public class SecurityToken {
 		
 	}
 
+	/*
+	 * encode object with private key
+	 * 
+	 * @Param token: java pojo model
+	 * @Param key: private key for encode model
+	 */
 	public static String encodeToken(Object token, String key) {
 		try {
 			return encryption.encrypt(token, key)+"."+signatureBcrypt.getSignatureBcrypt();
@@ -59,6 +67,11 @@ public class SecurityToken {
 		return null;
 	}
 	
+	/*
+	 * encode object with default private key
+	 * 
+	 * @Param token: java pojo model
+	 */
 	public static String encodeToken(Object token) {
 		try {
 			return encryption.encrypt(token)+"."+signatureBcrypt.getSignatureBcrypt();
@@ -72,7 +85,13 @@ public class SecurityToken {
 		return null;
 	}
 	
-	
+	/*
+	 * decode java pojo model method with private key
+	 * 
+	 * @Param token: encode java pojo model.
+	 * @Param classType: decode class type object.
+	 * @Param key: private key for decode model
+	 */
 	public static <T> T decodeToken(String token, Class<T> classType, String key) throws InvalidTokenException, InvalidSignatureException{
 		
 		String[] values = token.split("[.]");
@@ -107,6 +126,12 @@ public class SecurityToken {
 		}
 	}
 	
+	/*
+	 * decode java pojo model method with default private key
+	 * 
+	 * @Param token: encode java pojo model.
+	 * @Param classType: decode class type object.
+	 */
 	public static <T> T decodeToken(String token, Class<T> classType) throws InvalidTokenException, InvalidSignatureException {
 		return decodeToken(token, classType, ApplicationConstant.DEFAULT_SECRET_KEY);
 	}

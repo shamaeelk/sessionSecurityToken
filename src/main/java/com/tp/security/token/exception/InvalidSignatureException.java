@@ -4,6 +4,8 @@
 package com.tp.security.token.exception;
 
 /**
+ * Invalid signature exception class.
+ * 
  * @author ii00083746
  *
  */

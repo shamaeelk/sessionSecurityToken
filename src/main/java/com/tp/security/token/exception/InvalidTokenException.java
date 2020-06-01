@@ -4,6 +4,8 @@
 package com.tp.security.token.exception;
 
 /**
+ * invalid encrypted token exception.
+ * 
  * @author ii00083746
  *
  */
